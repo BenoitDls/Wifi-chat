@@ -26,6 +26,8 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
+const io = require('socket.io')(server);
+require('../sockets/Chat')(io);
 server.on('error', onError);
 server.on('listening', onListening);
 
